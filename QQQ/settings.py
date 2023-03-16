@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-ROOT_URLCONF = 'mars.urls'
+ROOT_URLCONF = 'QQQ.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mars.wsgi.application'
+WSGI_APPLICATION = 'QQQ.wsgi.application'
 
 
 # Database
