@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Instance, AppType, Enterprise, Work, Module, Repayment, EnterpriceAccess, RepaymentModule
+from .models import Instance, AppType, Enterprise, WorkMessage, MessageType, Module, Repayment, EnterpriceAccess, RepaymentModule
 
 
 class InstanceSerializer(serializers.ModelSerializer):
@@ -18,9 +18,14 @@ class EnterpriseSerializer(serializers.ModelSerializer):
         model = Enterprise
         fields = '__all__'
 
-class WorkSerializer(serializers.ModelSerializer):
+class WorkMessageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Work
+        model = WorkMessage
+        fields = '__all__'
+
+class MassageTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MessageType
         fields = '__all__'
 
 class ModuleSerializer(serializers.ModelSerializer):

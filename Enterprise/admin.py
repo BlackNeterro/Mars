@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import (Enterprise,
                      Instance,
                      AppType,
-                     Work,
+                     MessageType,
+                     WorkMessage,
                      Module,
                      Repayment,
                      EnterpriceAccess,
@@ -26,7 +27,11 @@ class AppTypeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name_kz', 'name_ru', 'name_en')
     list_display_links = ('id', 'name_kz', 'name_ru', 'name_en')
 
-class WorkAdmin(admin.ModelAdmin):
+class MessageTypeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name_kz', 'name_ru', 'name_en')
+    list_display_links = ('id', 'name_kz', 'name_ru', 'name_en')
+
+class WorkMessageAdmin(admin.ModelAdmin):
     list_display = ('id', 'instance', 'appType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
     list_display_links = ('id', 'instance', 'appType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
     list_filter = ('dBeg', 'dtEnd')
@@ -54,7 +59,8 @@ class EnterpriceAccessAdmin(admin.ModelAdmin):
 admin.site.register(Enterprise)
 admin.site.register(Instance)
 admin.site.register(AppType)
-admin.site.register(Work)
+admin.site.register(MessageType)
+admin.site.register(WorkMessage)
 admin.site.register(Module)
 admin.site.register(Repayment)
 admin.site.register(EnterpriceAccess)

@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Instance, AppType, Enterprise, Work, Module, Repayment, EnterpriceAccess, RepaymentModule
-from .serializers import InstanceSerializer, AppTypeSerializer, EnterpriseSerializer, WorkSerializer, ModuleSerializer, RepaymentSerializer, EnterpriceAccessSerializer, RepaymentModuleSerializer
+from .models import Instance, AppType, Enterprise, MessageType, WorkMessage, Module, Repayment, EnterpriceAccess, RepaymentModule
+from .serializers import InstanceSerializer, AppTypeSerializer, EnterpriseSerializer, MassageTypeSerializer,WorkMessageSerializer, ModuleSerializer, RepaymentSerializer, EnterpriceAccessSerializer, RepaymentModuleSerializer
 
 
 #import coreapi
@@ -48,14 +48,22 @@ class EnterpriseRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView)
     queryset = Enterprise.objects.all()
     serializer_class = EnterpriseSerializer
 
+class MessageTypeListCreateView(generics.ListCreateAPIView):
+    queryset = MessageType.objects.all()
+    serializer_class = MassageTypeSerializer
 
-class WorkListCreateView(generics.ListCreateAPIView):
-    queryset = Work.objects.all()
-    serializer_class = WorkSerializer
+class MessageTypeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MessageType.objects.all()
+    serializer_class = MassageTypeSerializer
 
-class WorkRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Work.objects.all()
-    serializer_class = WorkSerializer
+
+class WorkMessageListCreateView(generics.ListCreateAPIView):
+    queryset = WorkMessage.objects.all()
+    serializer_class = WorkMessageSerializer
+
+class WorkMessageRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = WorkMessage.objects.all()
+    serializer_class = WorkMessageSerializer
 
 
 class ModuleListCreateView(generics.ListCreateAPIView):

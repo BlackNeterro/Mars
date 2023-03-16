@@ -1,7 +1,8 @@
 from .models import (Enterprise,
                      Instance,
                      AppType,
-                     Work,
+                     MessageType,
+                     WorkMessage,
                      Module,
                      Repayment,
                      EnterpriceAccess,
@@ -10,7 +11,8 @@ from rest_framework import viewsets, permissions
 from .serializers import (InstanceSerializer,
                           AppTypeSerializer,
                           EnterpriseSerializer,
-                          WorkSerializer,
+                          MassageTypeSerializer,
+                          WorkMessageSerializer,
                           ModuleSerializer,
                           RepaymentSerializer,
                           EnterpriceAccessSerializer,
@@ -38,12 +40,19 @@ class AppTypeViewSet(viewsets.ModelViewSet):
     ]
 serializer_class = AppTypeSerializer
 
-class WorkViewSet(viewsets.ModelViewSet):
-    queryset = Work.objects.all()
+class MessageTypeViewSet(viewsets.ModelViewSet):
+    queryset = MessageType.objects.all()
     permission_classes = [
         permissions.AllowAny
     ]
-serializer_class = WorkSerializer
+serializer_class = MassageTypeSerializer
+
+class WorkMessageViewSet(viewsets.ModelViewSet):
+    queryset = WorkMessage.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+serializer_class = WorkMessageSerializer
 
 class ModuleViewSet(viewsets.ModelViewSet):
     queryset = Module.objects.all()

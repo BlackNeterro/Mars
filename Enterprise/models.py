@@ -12,6 +12,7 @@ class Instance(models.Model):
     iin_superuser = models.CharField('', max_length=12, null=True)
     fio_kz = models.CharField('ФИО каз.', max_length=50, null=True)
     fio_ru = models.CharField('ФИО рус.', max_length=50, null=True)
+    email = models.EmailField('Емайл', null=False)
     fio_en = models.CharField('ФИО англ.', max_length=50, null=True)
     phoneNumber = models.CharField('', max_length=12, null=False)
     cmt_kz = models.CharField('Коммент каз.', max_length=100, null=True)
@@ -39,11 +40,18 @@ class Enterprise(models.Model):
     cmt_kz = models.CharField('Комментарии (каз)', max_length=50, null=True)
     cmt_ru = models.CharField('Комментарии (рус)', max_length=50, null=True)
     cmt_en = models.CharField('Комментарии (англ)', max_length=50, null=True)
+
+class MessageType(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    name_kz = models.CharField('Названи каз', max_length=50, null=True)
+    name_ru = models.CharField('Названи рус', max_length=50, null=True)
+    name_en = models.CharField('Названи англ', max_length=50, null=True)
     
-class Work(models.Model):
+class WorkMessage(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     instance = models.ForeignKey(Instance, on_delete=models.CASCADE, blank=True, null=True)
     appType = models.ForeignKey(AppType, on_delete=models.CASCADE, blank=True, null=True)
+    massageType = models.ForeignKey(MessageType, on_delete=models.CASCADE, blank=True, null=True)
     dtBeg = models.DateField('Дата Начала', null=False)
     dtEnd = models.DateField('Дата окончания', null=True)
     response = models.CharField('Ответ от приложения', max_length=50, null=True)
