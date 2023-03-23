@@ -32,8 +32,8 @@ class MessageTypeAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name_kz', 'name_ru', 'name_en')
 
 class WorkMessageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'instance', 'appType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
-    list_display_links = ('id', 'instance', 'appType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
+    list_display = ('id', 'instance', 'appType', 'massageType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
+    list_display_links = ('id', 'instance', 'appType', 'massageType', 'dtBeg', 'dtEnd', 'response', 'cmt_kz', 'cmt_ru', 'cmt_en')
     list_filter = ('dBeg', 'dtEnd')
 
 class ModuleAdmin(admin.ModelAdmin):

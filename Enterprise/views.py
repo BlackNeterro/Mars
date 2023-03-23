@@ -1,26 +1,52 @@
 from rest_framework import generics
+from rest_framework.decorators import api_view,schema
+from rest_framework.response import Response
+from django.views.decorators.csrf import csrf_exempt
 from .models import Instance, AppType, Enterprise, MessageType, WorkMessage, Module, Repayment, EnterpriceAccess, RepaymentModule
 from .serializers import InstanceSerializer, AppTypeSerializer, EnterpriseSerializer, MassageTypeSerializer,WorkMessageSerializer, ModuleSerializer, RepaymentSerializer, EnterpriceAccessSerializer, RepaymentModuleSerializer
 
+# @api_view(['POST'])
+# @csrf_exempt
+# def add_Instance(request):
+#     instanceNumber = request.POST.get('instanceNumber')
+#     dBeg = request.POST.get('dBeg')
+#     OS = request.POST.get('OS')
+#     extMemory = request.POST.get('extMemory')
+#     path = request.POST.get('path')
+#     iin_superuser = request.POST.get('iin_superuser')
+#     fio_kz = request.POST.get('fio_kz')
+#     fio_ru = request.POST.get('fio_ru')
+#     email = request.POST.get('email')
+#     fio_en = request.POST.get('fio_en')
+#     phoneNumber = request.POST.get('phoneNumber')
+#     cmt_kz = request.POST.get('cmt_kz')
+#     cmt_ru = request.POST.get('cmt_ru')
+#     cmt_en = request.POST.get('cmt_en')
+#     Instance = Instance(instanceNumber =instanceNumber, dBeg =dBeg, OS = OS, extMemory = extMemory, path = path, iin_superuser =iin_superuser, fio_kz = fio_kz, fio_ru = fio_ru, email = email, fio_en = fio_en, phoneNumber = phoneNumber, cmt_kz = cmt_kz, cmt_ru = cmt_ru, cmt_en = cmt_en)
+#     Instance.save()
+#     return Response(status=201)
 
-#import coreapi
-#from django.shortcuts import render
-#from rest_framework.decorators import api_view, schema
-#from rest_framework.response import Response
-#from rest_framework.schemas import AutoSchema
-
-# Create your views here.
-
-#@api_view(['GET'])
-#@schema(AutoSchema(manual_fields=[
-#    coreapi.Field(name='my_field', required=True, location='query', description='A required field'),
-#    coreapi.Field(name='another_field', required=False, location='query', description='An optional field'),
-#]))
-#def my_endpoint(request):
-#    my_field = request.query_params.get('my_field')
-#    another_field = request.query_params.get('another_field')
-#    # Your code here
-#    return Response({'my_field': my_field, 'another_field': another_field})
+# @api_view(['GET'])
+# @schema(None)
+# def Instance(request):
+#     ip = 
+#     instanceNumber = request.POST.get('instanceNumber')
+#     dBeg = request.POST.get('dBeg')
+#     OS = request.POST.get('OS')
+#     extMemory = request.POST.get('extMemory')
+#     path = request.POST.get('path')
+#     iin_superuser = request.POST.get('iin_superuser')
+#     fio_kz = request.POST.get('fio_kz')
+#     fio_ru = request.POST.get('fio_ru')
+#     email = request.POST.get('email')
+#     fio_en = request.POST.get('fio_en')
+#     phoneNumber = request.POST.get('phoneNumber')
+#     cmt_kz = request.POST.get('cmt_kz')
+#     cmt_ru = request.POST.get('cmt_ru')
+#     cmt_en = request.POST.get('cmt_en')
+#     Instance = Instance(instanceNumber =instanceNumber, dBeg =dBeg, OS = OS, extMemory = extMemory, path = path, iin_superuser =iin_superuser, fio_kz = fio_kz, fio_ru = fio_ru, email = email, fio_en = fio_en, phoneNumber = phoneNumber, cmt_kz = cmt_kz, cmt_ru = cmt_ru, cmt_en = cmt_en)
+#     Instance.save()
+#     return Response(status=200)   
 
 class InstanceListCreateView(generics.ListCreateAPIView):
     queryset = Instance.objects.all()

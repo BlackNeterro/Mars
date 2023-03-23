@@ -3,7 +3,7 @@ import uuid
 
 # Create your models here.
 class Instance(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    id = models.UUIDField(primary_key=True, default=1000)
     instanceNumber = models.CharField('Инстант', max_length=50, null=True)
     dBeg = models.DateField('Дата установки', null=True)
     OS = models.CharField('Операционная система', max_length=50, null=True)
